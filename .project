@@ -15,7 +15,7 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.playframework.playclipse.playNature</nature>
 	</natures>
-	<linkedResources><link><name>docviewer</name><type>2</type><location>C:/Users/20152094040166/Downloads/play-1.4.5/modules/docviewer/app</location></link>
-<link><name>public/docviewer</name><type>2</type><location>C:/Users/20152094040166/Downloads/play-1.4.5/modules/docviewer/public</location></link>
+	<linkedResources><link><name>docviewer</name><type>2</type><location>C:/Users/20152094040247/Desktop/play-1.4.5/modules/docviewer/app</location></link>
+<link><name>public/docviewer</name><type>2</type><location>C:/Users/20152094040247/Desktop/play-1.4.5/modules/docviewer/public</location></link>
 </linkedResources>
 </projectDescription>
