@@ -1,0 +1,65 @@
+#{extends 'mainOperador.html' /} 
+#{set title:'Recarga de Credito' /}
+
+<meta charset="UTF-8" />
+<div class="col-sm-5">
+    <div class="card">
+    
+
+	<div class="card bg-success text-white text-center" style="font-size:36px" >
+		Recarga
+	</div>
+	<div class="card-body">
+
+		<form action="@{Recargas.salvarRecarga}" method="post">
+
+			<input type="hidden" value="${conta?.id}" name="conta.id">
+
+				<div class="form-group col-md-12">
+					<label for="numeroConta">Número da Conta</label> 
+					<input class="form-control" id="numeroConta" type="text" readonly value="${conta?.numeroConta}" name="conta.numeroConta">
+				</div>
+
+				<div class="form-group col-md-12"><label for="nome">Cliente</label> 
+				<input class="form-control" id="cliConta" type="text" readonly value="${cliente?.nome}" name="conta.cliConta">
+				</div>
+				
+				<div class="form-group col-md-12"><label for="saldo">Saldo atual</label> 
+				<input class="form-control" id="saldo" type="text" readonly value="${conta?.saldo}" name="conta.saldo"> 
+				</div>
+				
+				<div class="col-md-12">
+				 <label for="conta">Valor da recarga</label> 
+					<select id="recarga" name="conta.recarga" class="form-control">				  
+						<option value="0"></option>
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+					</select>
+				</div>
+
+				<div class="col-md-12">
+					<label for="pagamento">Forma de pagamento</label> 
+					<select id="pagamento" name="conta.pagamento" class="form-control">				 
+						<option value="a vista">A vista</option>
+						<option value="cartao">Cartão</option>
+						<option value="boleto">Boleto</option>
+					</select></br>
+				</div>
+
+			<div class="row">
+				<div class="form-group col-md-4">
+					<input class="btn btn-success pull-right" type="submit"
+						value="Confirmar">
+				</div>
+
+				<div class="form-group col-md-6">
+					<input class="btn btn-danger pull-right" type="submit"
+						value="Cancelar">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+

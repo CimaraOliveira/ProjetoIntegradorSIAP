@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>#{get 'title' /}</title>
+  <!-- Bootstrap core CSS-->
+  <link href="@{'/public/bootstrap/vendor/bootstrap/css/bootstrap.min.css'}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="@{'/public/bootstrap/vendor/font-awesome/css/font-awesome.min.css'}" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="@{'/public/bootstrap/vendor/datatables/dataTables.bootstrap4.css'}" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="@{'/public/bootstrap/css/sb-admin.css'}" rel="stylesheet">
+  
+  #{get 'moreStyles' /}
+
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <a class="navbar-brand" href="@{Operadores.operador}"><i class="fa fa-book"></i> SIAP</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
+    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive"> 
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents1" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-user"></i>
+            <span class="nav-link-text"> Operador</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents1">
+            <li>
+              <a href="@{Operadores.listar}"> Listar clientes</a>
+            </li> 
+          </ul> 
+        </li>
+        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-credit-card"></i>
+            <span class="nav-link-text">Contas</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents2">
+            <li>
+              <a href="@{Operadores.operador}">Recarga</a>
+            </li>
+             <li>
+              <a href="@{Contas.contaListar}">Extrato</a>
+            </li>
+             <li>
+              <a href="@{FrenteDeCaixas.listagemCaixa}">Listagem de Caixa</a>
+            </li>
+          </ul>
+        </li>
+        
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-cutlery"></i>
+            <span class="nav-link-text">Cardápio</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents3">
+            <li>
+              <a href="http://adcon.rn.gov.br/ACERVO/SETHAS/DOC/DOC000000000175855.PDF">Mostrar</a>
+            </li>
+ 
+          </ul>
+        </li>
+      
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-comment"></i>
+            <span class="nav-link-text">Sugestôes</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents4">
+            <li>
+              <a href="@{Sugestoes.formSugestaoOperador}">Opinião</a>
+            </li>
+             <li>
+              <a href="@{Sugestoes.listagemOperador}">Historico</a>
+            </li> 
+          </ul>
+        </li>
+	</ul>
+      <ul class="navbar-nav ml-auto">
+      	<li class="nav-item" data-toggle="tooltip" data-placement="right">
+          <a class="nav-link" href="@{FrenteDeCaixas.fechaCaixa}">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li> 
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+        
+        
+         #{if flash.success}
+	       		<div class="alert alert-success" role="alert">
+					<p>${flash.success.raw()}</p>
+				</div>
+			#{/if}
+			
+			
+			<!-- Mensagem de erro -->
+			
+			#{if flash.error}
+				<div class="alert alert-danger">
+					<p>${flash.error.raw()}</p>
+				</div>
+			#{/if}
+        
+          #{doLayout /}
+        </div>
+      </div>
+      <!-- Icon Cards-->
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    </footer>
+       
+    <!-- Bootstrap core JavaScript-->
+    <script src="@{'/public/bootstrap/vendor/jquery/jquery.min.js'}"></script>
+    <script src="@{'/public/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js'}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="@{'/public/bootstrap/vendor/jquery-easing/jquery.easing.min.js'}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="@{'/public/bootstrap/vendor/chart.js/Chart.min.js'}"></script>
+    <script src="@{'/public/bootstrap/vendor/datatables/jquery.dataTables.js'}"></script>
+    <script src="@{'/public/bootstrap/vendor/datatables/dataTables.bootstrap4.js'}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="@{'/public/bootstrap/js/sb-admin.min.js'}"></script>
+    <!-- Custom scripts for this page-->
+    <script src="@{'/public/bootstrap/js/sb-admin-datatables.min.js'}"></script>
+    <script src="@{'/public/bootstrap/js/sb-admin-charts.min.js'}"></script>
+    
+    #{get 'moreScripts' /}
+    
+  </div>
+</body>
+
+</html>

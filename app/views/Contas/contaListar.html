@@ -1,0 +1,46 @@
+#{extends 'mainOperador.html' /}
+#{set title:'Listar Clientes' /}
+
+
+<div class="card mb-3 container">
+<meta charset="UTF-8"/>
+ <div class="card-header">
+   <i class="fa fa-table"></i> Listagem de Contas</div>
+ <div class="card-body">
+    
+     <table class="table dataTable" id="dataTable">
+       <thead>
+         <tr><th rowspan="1" colspan="1">Cliente</th>
+         <th rowspan="1" colspan="1">Número Conta</th>
+         <th rowspan="1" colspan="1">Saldo</th>
+       </thead>
+       <tbody>
+     
+	#{list items:contas, as:'conta'}
+		<tr role="row">
+
+           <td>${conta.cliente.nome}</td>
+           <td>${conta.numeroConta}</td>
+           <td>${conta.saldo}</td>
+
+         </tr>
+	#{/list}
+	
+	
+	
+	</tbody>
+    </table>
+    
+    <div class="row">
+		
+		<div class="form-group col-md-2">
+			<a href="@{Operadores.operador}" class="btn btn-danger btn-block">Sair</a>
+		</div>
+	</div>
+    
+  </div>
+</div>
+
+	
+  
+  

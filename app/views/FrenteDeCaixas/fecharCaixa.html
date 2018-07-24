@@ -1,0 +1,15 @@
+#{extends 'mainOperador.html' /}
+#{set title:'Extrato Frente de Caixa' /}
+
+<meta charset="utf-8">
+<h1> Extrato Frente de Caixa</h1>
+
+	----------------------------------<br>
+    Abertura do Caixa: ${frenteDeCaixa.abrirCaixa}<br><br/>
+    Total de refeições: ${frenteDeCaixa.totalVendaRefeicao}<br>
+    Total das Recargas: ${frenteDeCaixa.totalVendaRecarga}<br><br/>
+    Fechamento do Caixa: ${frenteDeCaixa.fecharCaixa}<br><br/>
+		
+	<div class="form-group col-md-2">
+		<a href="@{Logins.logout}" class="btn btn-danger btn-block">Logout</a>
+	</div>

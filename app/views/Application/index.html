@@ -1,0 +1,50 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div class="container-fluid">
+<div class="container-fluid">
+      <!-- Breadcrumbs-->
+        <meta charset="utf-8">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Inicio</a>																																																																														
+        </li>
+        
+      </ol>
+      <!-- Icon Cards-->
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-comments"></i>
+              </div>
+              <div class="mr-5">Sugestões</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="@{Sugestoes.listSugestao}">
+              <span class="float-left">Ver Sugestões</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-info o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-cutlery"></i>
+              </div>
+              <div class="mr-5">Cardápio</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="http://adcon.rn.gov.br/ACERVO/SETHAS/DOC/DOC000000000175855.PDF">
+              <span class="float-left">Ver cardápio</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        
+      </div>
+      <!-- Area Chart Example-->

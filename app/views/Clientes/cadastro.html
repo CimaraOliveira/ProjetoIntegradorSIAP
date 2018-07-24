@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Siap</title>
+  <!-- Bootstrap core CSS-->
+  <link href="@{'/public/bootstrap/vendor/bootstrap/css/bootstrap.min.css'}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="@{'/public/bootstrap/vendor/font-awesome/css/font-awesome.min.css'}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="@{'/public/bootstrap/css/sb-admin.css'}" rel="stylesheet">
+ 
+ 
+</head>
+
+<body class="bg-dark">
+        
+           	#{if flash.error}
+           	
+				<div class="alert alert-danger">
+				<b>
+					<center><p>${flash.error.raw()}</p></center>
+				</b>
+				</div>
+			
+			#{/if} 
+		
+	
+   <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Cadastrar conta </div>
+      <div class="card-body">
+        <form action="@{Clientes.salvar}" method="post" enctype="multipart/form-data">
+                
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="nome">Nome</label>
+                <input class="form-control #{ifError 'cliente.nome'} is-invalid#{/ifError}" 
+                id="nome" type="text" value="${cliente == null ? flash['cliente.nome'] : cliente.nome}" 
+                name="cliente.nome" aria-describedby="nomeHelp" placeholder="Nome e sobrenome">
+                #{ifError 'cliente.nome'}
+        	     <div class="invalid-feedback">#{error 'cliente.nome' /}</div>  	   		 
+        	    #{/ifError}
+              </div>
+              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Endereço de e-mail</label>
+            <input class="form-control #{ifError 'cliente.email'} is-invalid#{/ifError}"
+            id="email" type="text" value="${cliente == null ? flash['cliente.email'] : cliente.email}"  
+            name="cliente.email" aria-describedby="emailHelp" placeholder="Digite o email">
+            #{ifError 'cliente.email'}
+        	   <div class="invalid-feedback">#{error 'cliente.email' /}</div>  	   		 
+        	   #{/ifError}
+          </div>
+          
+      <div class="form-group">
+          <div class="form-row">
+          <div class="col-md-6">
+            <label for="cpf">CPF</label>
+            <input class="form-control #{ifError 'cliente.cpf'} is-invalid#{/ifError}" 
+            id="cpf" type="text" value="${cliente == null ? flash['cliente.cpf'] : cliente.cpf}" 
+            name="cliente.cpf" aria-describedby="cpfHelp" placeholder="Digite cpf" maxlength="11" >
+            #{ifError 'cliente.nome'}
+        	   <div class="invalid-feedback">#{error 'cliente.nome' /}</div>  	   		 
+        	#{/ifError}
+          </div>
+          
+                
+          <div class="col-md-6">
+            <label for="telefone">Telefone</label>
+            <input class="form-control #{ifError 'cliente.telefone'} is-invalid#{/ifError}" 
+            id="telefone" type="text" value="${cliente == null ? flash['cliente.telefone'] : cliente.telefone}" 
+            name="cliente.telefone" aria-describedby="telefoneHelp" placeholder="Digite telefone" maxlength="11">
+          #{ifError 'cliente.nome'}
+        	   <div class="invalid-feedback">#{error 'cliente.nome' /}</div>  	   		 
+        	#{/ifError}
+          </div>
+          </div>
+          </div> 
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="senha">Senha</label> <input 
+                class="form-control" placeholder="Senha" name="cliente.senha"
+                type="password" value=""> 
+              </div>
+              
+              <div class="col-md-6">
+               <label for="senha">Confirmar Senha</label> <input 
+                class="form-control" placeholder="Confirmar Senha" name="confirmarSenha"
+                type="password" value=""> 
+              </div>
+          </div>
+           </div>
+
+           <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+          <input class="btn btn-primary btn-block" type="submit" value="Cadastrar">
+          </div>
+           <div class="col-md-6">
+          <a href="@{Logins.login}" class="btn btn-danger btn-block">Cancelar</a>
+          </div>
+           </div>
+            </div>
+            
+        </form>  
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap core JavaScript-->
+  <script src="@{'/public/bootstrap/vendor/jquery/jquery.min.js'}"></script>
+  <script src="@{'/public/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js'}"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="@{'/public/bootstrap/vendor/jquery-easing/jquery.easing.min.js'}"></script>
+  
+  <script src="@{'/public/bootstrap/js/validator.min.js'}"></script>
+
+</body>
+
+</html>
+
+

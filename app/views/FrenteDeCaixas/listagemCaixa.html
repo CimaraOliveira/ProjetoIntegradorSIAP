@@ -1,0 +1,43 @@
+#{extends 'mainOperador.html' /}
+#{set title:'Listar Caixas' /}
+
+<div class="card mb-3 container">
+<meta charset="UTF-8"/>
+ <div class="card-header">
+   <i class="fa fa-table"></i> Listagem de Caixas</div>
+ <div class="card-body">
+    
+     <table class="table dataTable" id="dataTable">
+       <thead>
+         <th rowspan="1" colspan="1">Abertura do Caixa</th>
+         <th rowspan="1" colspan="1">Total de refeições</th>
+         <th rowspan="1" colspan="1">Total das Recargas</th>
+         <th rowspan="1" colspan="1">Fechamento do Caixa</th>
+
+         <th>Ações</th>
+       </thead>
+       <tbody>
+	#{list items:frenteDeCaixas, as:'frenteDeCaixa'}
+		<tr role="row">
+           <td>${frenteDeCaixa.abrirCaixa}</td>
+           <td>${frenteDeCaixa.totalVendaRefeicao}</td>
+           <td>${frenteDeCaixa.totalVendaRecarga}</td>
+           <td>${frenteDeCaixa.fecharCaixa}</td>
+           
+         </tr>
+	#{/list}
+	</tbody>
+	
+    </table>
+    <br><br>
+    <div class="form-group col-md-2">
+			<a href="@{Operadores.operador}" class="btn btn-danger btn-block">Sair</a>
+		</div>
+  </div>
+</div>
+
+	<div class="row">
+		
+		
+	</div>
+  

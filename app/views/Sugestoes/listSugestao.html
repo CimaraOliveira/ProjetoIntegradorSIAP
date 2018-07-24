@@ -1,0 +1,39 @@
+#{extends 'main.html' /}
+#{set title:'Lista de Sugestões' /}
+
+
+<div class="card mb-3 container">
+<meta charset="UTF-8"/>
+ <div class="card-header">
+   <i class="fa fa-comment"></i> Sugestões ou Criticas</div>
+ <div class="card-body">
+    
+     <table class="table dataTable" id="dataTable">
+       <thead>
+         <tr>
+          <th rowspan="1" colspan="1">Cliente</th>
+          <th rowspan="1" colspan="1">Sugestões</th>
+          
+          
+       </thead>
+       <tbody>
+	#{list items:sugestoes, as:'sugestao'}
+		<tr role="row">
+           <td>${sugestao.cliente.nome}</td>
+           <td>${sugestao.sugestao}</td>
+         </tr>
+	#{/list}
+	</tbody>
+    </table>
+    <div class="row">
+		<div class="form-group col-md-2">
+			<a href="@{Sugestoes.formSugestao}" class="btn btn-success btn-block">Fazer Comentário</a>
+		</div>
+
+		<div class="form-group col-md-2">
+			<a href="@{Application.index}" class="btn btn-danger btn-block">Página Inicial</a>
+		</div>
+	</div>
+  </div>
+</div>
+

@@ -1,0 +1,35 @@
+#{extends 'mainOperador.html' /}
+#{set title:'Sugestão' /}
+ 
+<div class="card mb-3 container">
+<meta charset="UTF-8"/>
+	  <div class="card-header">
+	    <i class="fa fa-comment"></i> Deixe Sua Sugestão</div>
+	  <div class="card-body">
+           
+		<form action="@{Sugestoes.salvar}" method="post" enctype="multipart/form-data">
+			
+		   <input type="hidden" value="${sugestao?.id}" name="sugestao.id">
+			
+		   <div class="form-group col-md-12">
+		   		<label for="Opniao">Opinião</label>
+		   		<textarea class="form-control #{ifError 'sugestao.sugestao'} is-invalid#{/ifError}" 
+		   		id="sugestao" rows="7" type="text" value="${sugestao == null ? flash['sugestao.sugestao'] : sugestao.sugestao}" 
+                name="sugestao.sugestao" aria-describedby="nomeHelp" placeholder="Adicione seu comentario"></textarea>
+                #{ifError 'sugestao.sugestao'}
+        	     <div class="invalid-feedback">#{error 'sugestao.sugestao' /}</div>  	   		 
+        	    #{/ifError}		
+			</div>
+			
+			<div class="row">
+			  <div class="form-group col-md-2">
+				<input class="btn btn-success btn-block" type="submit" value="Enviar">
+			</div>
+			<div class="form-group col-md-2">
+				     <a href="@{Operadores.operador}" class="btn btn-danger btn-block">Sair</a>
+			</div>
+			</div>        
+		</form>
+		
+	</div>
+</div>    

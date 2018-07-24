@@ -1,0 +1,73 @@
+#{extends 'mainOperador.html' /}
+#{set title:'Home Operador' /}
+
+<div class="row"> 
+  <div class="col-sm-4"> 
+    <div class="card">
+		<meta charset="UTF-8" />
+	<div class="card bg-info text-white text-center" style="font-size:36px" >
+
+		Compra de Refeição 
+	</div>
+	
+	<div class="card-body">
+
+		<form action="@{CompraRefeicao.CompraVerificarNumeroConta}" method="post">
+
+			<input type="hidden" value="${conta?.id}" name="conta.id">
+
+				<div class="form-group col-md-12">
+					<label for="numeroConta">Número da Conta</label> 
+					<input class="form-control" id="numeroConta" type="text" name="numeroConta">
+				</div>
+
+
+			<div class="row">
+				<div class="form-group col-md-6">
+					<input class="btn btn-success pull-right" type="submit"
+						value="Confirmar">
+				</div>
+
+				<div class="form-group col-md-5">
+					<a href="@{Operadores.operador}" class="btn btn-danger btn-block">Cancelar</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+
+<div class="col-sm-4 ">
+    <div class="card ">
+	<div class="text-center"  >
+     Pau dos Ferros - RN 
+	</div>
+</div>
+</div>
+ <div class="col-sm-4"> 
+    <div class="card">
+	<div class="card bg-success text-white text-center" style="font-size:36px" >
+	Fazer Recarga
+	</div>
+	<div class="card-body">
+		<form action="@{Recargas.verificarNumeroConta}" method="post">				
+				<div class="form-group col-md-12">
+					<label for="numeroConta">Número da Conta</label> 
+					<input class="form-control" id="numeroConta" type="text" name="numeroConta">
+				</div>
+			<div class="row">
+				<div class="form-group col-md-6">
+					<input class="btn btn-success pull-right" type="submit" value="Confirmar">
+				</div>
+				<div class="form-group col-md-5">
+					<a href="@{Operadores.operador}" class="btn btn-danger btn-block">Cancelar</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+</div>
+
+
+

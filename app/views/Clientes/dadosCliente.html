@@ -1,0 +1,142 @@
+#{extends 'main.html' /} #{set title:'Dados do Cliente' /}
+
+<div class="container">
+	<div class="card card-register mx-auto mt-5">
+		<meta charset="UTF-8" />
+		<div class="card-header">
+			<i class="fa fa-refresh"></i> Atualizar Dados
+		</div>
+		<div class="card-body">
+			<form action="@{Clientes.atualizar}" method="post"
+				enctype="multipart/form-data">
+
+				<input type="hidden" name="cliente.id" value="${cliente?.id}">
+				
+				#{if cliente?.foto?.exists()}
+		   	<img height="150px" width="150px" src="@{Clientes.fotoCliente(cliente.id)}"><br>
+		   	<div class="form-group">
+	            <div class="form-check">
+	              <label class="form-check-label">
+	              	<input class="form-check-input" type="checkbox" name="excluirFoto">Excluir Imagem
+	              </label>
+	            </div>
+	        </div>
+		   #{/if}
+		   <br>
+				<input type="file" value="${cliente?.foto}" name="cliente.foto">
+				<div class="form-group">
+					<div class="form-row">
+						<div class="col-md-12">
+							<label for="nome">Nome</label> <input
+								class="form-control #{ifError 'cliente.nome'} is-invalid#{/ifError}"
+								id="nome" type="text"
+								value="${cliente == null ? flash['cliente.nome'] : cliente.nome}"
+								name="cliente.nome" aria-describedby="nomeHelp"
+								placeholder="Nome e sobrenome"> #{ifError
+							'cliente.nome'}
+							<div class="invalid-feedback">#{error 'cliente.nome' /}</div>
+							#{/ifError}
+						</div>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email">Endereço de e-mail</label> <input
+						class="form-control #{ifError 'cliente.email'} is-invalid#{/ifError}"
+						id="email" type="text"
+						value="${cliente == null ? flash['cliente.email'] : cliente.email}"
+						name="cliente.email" aria-describedby="emailHelp"
+						placeholder="Digite o email"> #{ifError 'cliente.email'}
+					<div class="invalid-feedback">#{error 'cliente.email' /}</div>
+					#{/ifError}
+				</div>
+
+				<div class="form-group">
+					<div class="form-row">
+						<div class="col-md-4">
+							<label for="cpf">CPF</label> <input
+								class="form-control #{ifError 'cliente.cpf'} is-invalid#{/ifError}"
+								id="cpf" type="text"
+								value="${cliente == null ? flash['cliente.cpf'] : cliente.cpf}"
+								name="cliente.cpf" aria-describedby="cpfHelp"
+								placeholder="Digite cpf" maxlength="11"> #{ifError
+							'cliente.nome'}
+							<div class="invalid-feedback">#{error 'cliente.nome' /}</div>
+							#{/ifError}
+						</div>
+
+						<div class="col-md-4">
+							<label for="dataNasc">Data de Nascimento</label> <input
+								id="dataNasc"
+								class="form-control date #{ifError 'cliente.dataNasc'} is-invalid#{/ifError}"
+								name="cliente.dataNasc"
+								value="${cliente == null ? flash['cliente.dataNasc'] : cliente?.dataNasc}"
+								type="date" required="required" maxlength="10"
+								pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="1918-01-01"
+								max="2018-07-03" /> #{ifError 'cliente.nome'}
+							<div class="invalid-feedback">#{error 'cliente.nome' /}</div>
+							#{/ifError}
+						</div>
+
+
+						<div class="col-md-4">
+							<label for="telefone">Telefone</label> <input
+								class="form-control #{ifError 'cliente.telefone'} is-invalid#{/ifError}"
+								id="telefone" type="text"
+								value="${cliente == null ? flash['cliente.telefone'] : cliente.telefone}"
+								name="cliente.telefone" aria-describedby="telefoneHelp"
+								placeholder="Digite telefone" maxlength="11"> #{ifError
+							'cliente.nome'}
+							<div class="invalid-feedback">#{error 'cliente.nome' /}</div>
+							#{/ifError}
+						</div>
+
+					</div>
+
+                  	<div class="form-group">
+						<div class="form-row">
+							<div class="col-md-9">
+								<label for="rua">Rua</label> <input class="form-control"
+									id="rua" type="text" value="${cliente?.rua}" name="cliente.rua"
+									aria-describedby="ruaHelp" placeholder="Digite Rua">
+							</div>
+
+							<div class="col-md-3">
+								<label for="numero">Numero</label> <input class="form-control"
+									id="numero" type="text" value="${cliente?.numero}"
+									name="cliente.numero" aria-describedby="numeroHelp"
+									placeholder="Digite Numero">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-row">
+							<div class="col-md-6">
+								<label for="cidade">Cidade</label> <input class="form-control"
+									id="cidade" type="text" value="${cliente?.cidade}"
+									name="cliente.cidade" aria-describedby="cidadeHelp"
+									placeholder="Digite Cidade">
+							</div>
+
+							<div class="col-md-6">
+								<label for="bairro">Bairro</label> <input class="form-control"
+									id="bairro" type="text" value="${cliente?.bairro}"
+									name="cliente.bairro" aria-describedby="bairroHelp"
+									placeholder="Digite Bairro">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+					<div class="form-group col-md-3">
+						<input class="btn btn-success btn-block" type="submit" value="Atualizar">
+					</div>
+					<div class="form-group col-md-3">
+						<a href="@{Application.index}" class="btn btn-danger btn-block">Página Inicial</a>
+					</div>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>

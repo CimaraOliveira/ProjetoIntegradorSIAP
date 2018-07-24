@@ -1,0 +1,52 @@
+#{extends 'main.html' /}
+#{set title:'Listar Clientes' /}
+
+<div class="card mb-3 container">
+<meta charset="UTF-8"/>
+ <div class="card-header">
+   <i class="fa fa-table"></i> Listagem de Cliente</div>
+ <div class="card-body">
+ 
+    #{if cliente.foto?.exists()}
+  	    <img height="150px" width="150px" src="@{Clientes.fotoCliente(cliente.id)}"><br>
+    #{/if}
+    
+     <table class="table dataTable" id="dataTable">
+       <thead>
+         <th rowspan="1" colspan="1">Nome</th>
+         <th rowspan="1" colspan="1">E-Mail</th>
+         <th rowspan="1" colspan="1">CPF</th>
+         <th rowspan="1" colspan="1">Data Nascimento</th>
+         <th rowspan="1" colspan="1">Telefone</th>
+
+         <th>Ações</th>
+       </thead>
+       <tbody>
+	#{list items:clientes, as:'cliente'}
+		<tr role="row">
+           <td>${cliente.nome}</td>
+           <td>${cliente.email}</td>
+           <td>${cliente.cpf}</td>
+           <td>${cliente.dataNasc}</td>
+           <td>${cliente.telefone}</td>
+           <td>
+           		<a href="@{Clientes.editar(cliente.id)}">Editar</a> 
+           	  	<a href="@{Clientes.remover(cliente.id)}">Remover</a>
+           	</td>
+         </tr>
+	#{/list}
+	</tbody>
+    </table>
+  </div>
+</div>
+
+	<div class="row">
+		<div class="form-group col-md-2">
+			<a href="@{Clientes.cadastro}" class="btn btn-success btn-block">Novo Cliente</a>
+		</div>
+
+		<div class="form-group col-md-2">
+			<a href="@{Application.index}" class="btn btn-danger btn-block">Sair</a>
+		</div>
+	</div>
+  

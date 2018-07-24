@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Recuperar senha SIAP</title>
+  <!-- Bootstrap core CSS-->
+  <link href="@{'/public/bootstrap/vendor/bootstrap/css/bootstrap.min.css'}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="@{'/public/bootstrap/vendor/font-awesome/css/font-awesome.min.css'}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="@{'/public/bootstrap/css/sb-admin.css'}" rel="stylesheet">
+</head>
+
+<body class="bg-dark">
+        
+           	#{if flash.error}
+           	
+				<div class="alert alert-danger">
+				<b>
+					<center><p>${flash.error.raw()}</p></center>
+				</b>
+				</div>
+			
+			#{/if}
+		 
+  <div class="container">
+  
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Recuperação de Senha do Usuário</div>
+
+      <div class="card-body">
+       <form action="@{Clientes.novaSenha}" method="post">
+		<div class="modal-body" align="left">
+			<div class="form-group">
+				<label for="formGroupExampleInput">E-mail:</label> <input
+					class="form-control" id="Email" placeholder="E-mail" name="cliente.email" type="email" autofocus>
+			</div>
+		</div>
+
+		<div class="modal-footer">
+			<button type="submit" class=" btn btn-lg btn-success">Enviar</button>
+			<button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Cancelar</button>
+		</div>
+		</form>
+        
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap core JavaScript-->
+  <script src="@{'/public/bootstrap/vendor/jquery/jquery.min.js'}"></script>
+  <script src="@{'/public/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js'}"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="@{'/public/bootstrap/vendor/jquery-easing/jquery.easing.min.js'}"></script>
+</body>
+
+</html>
+
+

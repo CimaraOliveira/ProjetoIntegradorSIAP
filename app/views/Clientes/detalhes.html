@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{set title:'Detalhes' /}
+
+<h1>Detalhes</h1>
+Nome: ${cliente.nome}<br>
+Email: ${cliente.email}<br>
+CPF: ${cliente.cpf}<br>
+Data Nascimento:${cliente.dataNasc?.format()}<br>
+Telefone: ${cliente.telefone}<br>
+<!--  
+Data Nascimento: ${cliente.dataNasc}<br>
+Cidade: ${cliente.cidade}<br>
+Bairro: ${cliente.bairro}<br>
+N�mero: ${cliente.numero}<br>
+Login: ${cliente.login}<br>
+Senha: ${cliente.senha}<br> 
+-->
+
+

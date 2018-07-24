@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Siap</title>
+  <!-- Bootstrap core CSS-->
+  <link href="@{'/public/bootstrap/vendor/bootstrap/css/bootstrap.min.css'}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="@{'/public/bootstrap/vendor/font-awesome/css/font-awesome.min.css'}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="@{'/public/bootstrap/css/sb-admin.css'}" rel="stylesheet">
+ 
+ 
+</head>
+
+<body class="bg-dark">
+        
+           	#{if flash.error}
+           	
+				<div class="alert alert-danger">
+				<b>
+					<center><p>${flash.error.raw()}</p></center>
+				</b>
+				</div>
+			
+			#{/if} 
+		
+	
+   <div class="container">
+    <div class="card card-register mx-auto mt-4">
+      <div class="card-header">Movimentação caixa do dia</div>
+      <div class="card-body">
+        <form action="@{Logins.logout}" method="post">
+        
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="nome">Nome Operador</label>
+                <input class="form-control" id="cliConta" type="text" readonly value="${cliente?.nome}" 
+                name="conta.cliConta">
+              </div>
+            </div>
+          </div>
+         
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="nome">Data abertura do caixa</label>
+                <input class="form-control" id="abrirCaixa" type="text" readonly value="${frenteDeCaixa?.abrirCaixa}" 
+                name="fecharCaixa.abrirCaixa">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="nome">Total de refeições vendas</label>
+                <input class="form-control" id="totalVendaRefeicao" type="text" readonly value="${frenteDeCaixa?.totalVendaRefeicao}" 
+                name="fecharCaixa.totalVendaRefeicao">
+              </div>
+            </div>
+          </div>
+          
+           <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="nome">Total de recargas realizadas</label>
+                <input class="form-control" id="totalVendaRecarga" type="text" readonly value="${frenteDeCaixa?.totalVendaRecarga}" 
+                name="fecharCaixa.totalVendaRecarga">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="nome">Data fechamento do caixa</label>
+                <input class="form-control" id="fecharCaixa" type="text" readonly value="${frenteDeCaixa?.fecharCaixa}" 
+                name="fecharCaixa">
+              </div>
+            </div>
+
+           </div>
+           <br><br/>
+           <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+        		 <input class="btn btn-primary btn-block" type="submit" value="Fechar caixa e sair">
+        	  </div>
+        	   <div class="col-md-6">
+          		<a href="@{Operadores.operador}" class="btn btn-danger btn-block">Cancelar</a>
+          		</div>
+            </div>
+           </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap core JavaScript-->
+  <script src="@{'/public/bootstrap/vendor/jquery/jquery.min.js'}"></script>
+  <script src="@{'/public/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js'}"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="@{'/public/bootstrap/vendor/jquery-easing/jquery.easing.min.js'}"></script>
+  
+  <script src="@{'/public/bootstrap/js/validator.min.js'}"></script>
+
+</body>
+
+</html>
+

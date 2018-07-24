@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+#{set title:'Contas' /}
+
+<h1>EXTRATO DE RECARGAS</h1>
+<h3>Numero da Conta: ${conta.numeroConta}<br></h3>
+
+
+#{list items:recargas, as:'recarga'}
+	----------------------------------<br>
+	Data: ${recarga.data}<br>
+	Recarga: ${recarga.recarga}<br>
+	Pagamento: ${recarga.pagamento}<br>
+	
+#{/list}
+    ----------------------------------<br>
+    <h3>SALDO R$ ${conta.saldo}<br></h3>
+  
